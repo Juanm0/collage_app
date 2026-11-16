@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Collage 30 fotos</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>Collage <span>30 fotos</span></h1>
+  <button id="dl" class="cta">DESCARGAR COLLAGE</button>
+</header>
+<main>
+  <aside>
+    <section class="panel">
+      <h2>Fotografías <small id="count">0</small></h2>
+      <div id="drop" class="drop" tabindex="0">Arrastrá tus fotos acá o tocá para elegirlas</div>
+      <input id="file" type="file" accept="image/*" multiple hidden>
+      <div class="row"><button id="add">+ Agregar</button><button id="clear" class="danger">Eliminar todas</button></div>
+      <div id="thumbs" class="thumbs"></div>
+    </section>
+    <section class="panel">
+      <h2>Formato</h2>
+      <div class="seg"><button data-o="v" class="on">Vertical</button><button data-o="h">Horizontal</button></div>
+      <button id="shuffle">↻ Nueva distribución</button>
+    </section>
+    <section class="panel">
+      <h2>Exportación</h2>
+      <label class="f">Formato
+        <select id="fmt"><option value="png">PNG (sin pérdida)</option><option value="jpg">JPG</option></select></label>
+      <label class="f" id="qwrap" hidden>Calidad JPG: <b id="qv">92</b>%
+        <input id="q" type="range" min="50" max="100" value="92"></label>
+      <label class="f">Resolución (lado largo)
+        <select id="res">
+          <option value="2500">Liviana · 2500 px</option>
+          <option value="3000">Estándar · 3000 px</option>
+          <option value="4500">Alta · 4500 px</option>
+          <option value="6000">Muy alta · 6000 px</option>
+          <option value="8000">Máxima · 8000 px</option>
+        </select></label>
+      <small class="note">Se usan tus fotos originales. Si el dispositivo no soporta la resolución elegida, se ajusta sola. No se inventan detalles que la foto original no tiene.</small>
+    </section>
+  </aside>
+  <section class="work">
+    <div class="bar">
+      <span class="hint" id="hint">Tocá una foto para elegirla y otra para intercambiar. Mantené presionado (celular) o arrastrá (PC) para moverla.</span>
+      <button id="zo" aria-label="Alejar">−</button><b id="zl">100%</b><button id="zi" aria-label="Acercar">+</button><button id="z1">100%</button>
+    </div>
+    <div id="viewer" class="viewer">
+      <div id="empty">Cargá tus fotos para armar el collage</div>
+      <div id="stage" hidden></div>
+    </div>
+  </section>
+</main>
+<div id="busy" hidden><div class="box"><p id="busyt"></p><div class="pg"><i id="busyb"></i></div></div></div>
+<div id="toast" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>
